@@ -1,0 +1,48 @@
+import random
+players : DynArray[uint256,100]
+losers : DynArray[uint256,100]
+odds : public (uint256)
+playersTurn : public (uint256)
+creator : public (address)
+
+@external
+def __init__():
+    self.creator = msg.sender
+
+@internal
+def setOdds(oneInThisMany: uint256):
+    odds = uint256
+
+@external
+def addPlayer (Player : address):
+    for p in losers:
+        if p != Player:
+            one = "y"
+    for playing in players:
+        if playing != address:
+            two = "y"
+    if (one == "y") and (two == "y"):
+        self.players.append(Player)
+
+@external
+def lose (Player : address):
+    self.players = []
+    self.losers.append(Player)
+
+@external
+def random():
+    print(random.randint(1,odds))
+
+@external
+def play():
+    random = self.random()
+    if random == 1:
+        self.lose(player[playersTurn])
+    if random != 1:
+        self.playersTurn = playersTurn + 1
+
+@external
+def isALoser (person : address):
+    for loser in losers:
+        if loser == person:
+            print (person + "is a loser")
